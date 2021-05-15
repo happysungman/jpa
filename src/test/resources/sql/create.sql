@@ -4,7 +4,7 @@ CREATE TABLE member
     id                    bigint auto_increment comment '멤버 ID'
         primary key,
     name                  varchar(50)                        not null,
-    team_id               varchar(50)                        not null
+    team_id               bigint                             not null
 )
     comment '멤버';
 

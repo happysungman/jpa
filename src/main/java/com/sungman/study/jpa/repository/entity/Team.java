@@ -1,7 +1,6 @@
 package com.sungman.study.jpa.repository.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -9,6 +8,9 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "team")
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Team {
 
     @Id
@@ -16,4 +18,12 @@ public class Team {
     private Long id;
 
     private String name;
+
+    public static Team of(Long id, String name) {
+        return new Team(id, name);
+    }
+
+    public static Team of(String name) {
+        return new Team(null, name);
+    }
 }

@@ -1,9 +1,6 @@
 package com.sungman.study.jpa.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +8,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "member")
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
@@ -21,10 +19,11 @@ public class Member {
 
     private String name;
 
-    @Column(name = "team_id")
-    private Long teamId;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "team_id", referencedColumnName = "id")
+    private Team team;
 
-    public static Member of(String name, long teamId) {
-        return new Member(null, name, teamId);
+    public static Member of(String name, Team team) {
+        return new Member(null, name, team);
     }
 }
