@@ -37,6 +37,7 @@ class MemberRepositoryTest {
                 () -> assertEquals("프론트팀", found.getTeam().getName())
         );
 
+        System.out.println(member);
     }
 
     @Test
@@ -56,6 +57,7 @@ class MemberRepositoryTest {
                 () -> assertEquals("백엔드팀", team.getName())
         );
 
+        System.out.println(member);
     }
 
 }
