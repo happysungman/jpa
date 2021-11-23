@@ -11,7 +11,6 @@ import java.util.Date;
 @Entity
 @Table(name = "member")
 //@Table(name = "member", uniqueConstraints = {@UniqueConstraint(name = "name_age_unique", columnNames = {"name", "age"})})
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
@@ -71,5 +70,9 @@ public class Member {
 
     public static Member of(String name, Team team) {
         return new Member(null, name, null, UserType.USER, new Date(), LocalDateTime.now(), null, team, null);
+    }
+
+    public static Member of(String name) {
+        return new Member(null, name, null, UserType.USER, new Date(), LocalDateTime.now(), null, null, null);
     }
 }
